@@ -14,12 +14,12 @@ galaxy_info:
     - crt
     - certificate
 
-platforms:
-  name: RedHat
-  versions:
-    - all
-  name: CentOS
-  versions:
-    - all
+  platforms:
+    name: RedHat
+    versions:
+      - all
+    name: CentOS
+    versions:
+      - all
     
 dependencies: []
