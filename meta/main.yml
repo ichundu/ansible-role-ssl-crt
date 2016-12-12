@@ -1,0 +1,25 @@
+galaxy_info:
+  author: ichundu
+  description: ansible enthusiast
+
+  license: license (GPLv2, CC-BY, etc)
+
+  min_ansible_version: 1.2
+
+  galaxy_tags:
+    - ssl
+    - openssl
+    - self
+    - signed
+    - crt
+    - certificate
+
+platforms:
+  name: RedHat
+  versions:
+    - all
+  name: CentOS
+  versions:
+    - all
+    
+dependencies: []
