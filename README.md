@@ -11,19 +11,22 @@ Requirements
 Role Variables
 --------------
 
-Variables in 'defaults/main.yml' file are, which should be overridden:
+Variables in 'defaults/main.yml' be overridden:
+
 - by role parameters, when this role is listed as a dependency by another role or at top playbook level
 - other roles vars
 - group/host vars
 
-	ssl_dir: "/etc/pki/tls/certs"
-	ssl_key_file: "/etc/pki/tls/private/{{ ansible_fqdn }}.key"
+Some variables are:
+
+	ssl_dir: "/path/to/dir"
+	ssl_key_file: "/path/to/srv.key"
 	ssl_key_size: "2048"
-	ssl_csr_file: "/etc/pki/tls/certs/{{ ansible_fqdn }}.csr"
+	ssl_csr_file: "/path/to/srv.csr"
 	ssl_csr_subject_fields: "\"/C={{ ssl_csr_country }}/ST={{ ssl_csr_state_province }}/L={{ ssl_csr_locality }}/O={{ ssl_csr_ou }}/CN={{ ssl_csr_cn }}\""
-	ssl_crt_file: "/etc/pki/tls/certs/{{ ansible_fqdn }}.crt"
+	ssl_crt_file: "/path/to/srv.crt
 	ssl_crt_days: "9999"
-	ssl_dhparam_file: "/etc/pki/tls/private/dhparam.pem"
+	ssl_dhparam_file: "/path/to/dhparam.pem"
 	ssl_dhparam_size: "4096"
 
 The following variables must be defined elsewhere by the user according to their location:
