@@ -39,7 +39,7 @@ CSR subject fields:
 
 `*.crt` file path:
 
-	ssl_crt_file: "/path/to/srv.crt
+	ssl_crt_file: "/path/to/srv.crt"
 
 Certificate valid days:
 
