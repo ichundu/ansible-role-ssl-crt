@@ -79,7 +79,7 @@ Example Playbook
 	    ssl_csr_cn: "Company"
 
 	  roles:
-	    - ssl-crt
+	    - ichundu.ssl-crt
 
 License
 -------
