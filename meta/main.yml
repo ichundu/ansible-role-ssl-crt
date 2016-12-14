@@ -15,10 +15,7 @@ galaxy_info:
     - certificate
 
   platforms:
-    - name: RedHat
-      versions:
-        - all
-    - name: CentOS
+    - name: GenericLinux
       versions:
         - all
     
