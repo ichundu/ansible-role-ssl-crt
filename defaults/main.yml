@@ -2,14 +2,14 @@
 # defaults file for ssl-crt
 
 # Weather to generate rsa or ecc certificate, defults to rsa certs
-ssl_ecc_crt: no
+ssl_ecc_crt: false
 
 ssl_dir: "/etc/pki/tls/certs"
 ssl_key_file: "/etc/pki/tls/private/{{ ansible_fqdn }}.key"
-ssl_key_size: "2048"
+ssl_rsa_key_size: "2048"
 ssl_csr_file: "/etc/pki/tls/certs/{{ ansible_fqdn }}.csr"
-ssl_crt_file: "/etc/pki/tls/certs/{{ ansible_fqdn }}.crt"
 ssl_csr_subject_fields: "\"/C={{ ssl_csr_country }}/ST={{ ssl_csr_state_province }}/L={{ ssl_csr_locality }}/O={{ ssl_csr_ou }}/CN={{ ssl_csr_cn }}\""
+ssl_crt_file: "/etc/pki/tls/certs/{{ ansible_fqdn }}.crt"
 ssl_crt_days: "9999"
 
 ssl_ecc_curve_name: "secp384r1"
