@@ -15,8 +15,17 @@ galaxy_info:
     - certificate
 
   platforms:
-    - name: GenericLinux
+    - name: EL
       versions:
-        - all
+        - 6
+        - 7
+    - name: Debian
+      versions:
+        - stretch
+        - wheezy
+    - name: Ubuntu
+      versions:
+        - trusty
+        - xenial
     
 dependencies: []
