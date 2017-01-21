@@ -1,11 +1,19 @@
 ---
 # tasks file for ssl-crt
 
-- name: Ensure openssl is installed
+- name: Ensure openssl is installed | RedHat
   yum:
     name: openssl
     state: present
   tags: ssl
+  when: ansible_os_family == "RedHat"
+
+- name: Ensure openssl is installed | Debian
+  apt:
+    name: openssl
+    state: present
+  tags: ssl
+  when: ansible_os_family == "Debian"
 
 - name: Create ssl certificates direcotry
   file:
