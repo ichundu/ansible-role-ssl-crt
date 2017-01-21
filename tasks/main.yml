@@ -14,20 +14,13 @@
     state: directory
   tags: ssl
 
-- name: Generate ssl key and csr
-  command: "openssl req -newkey rsa:{{ ssl_key_size }} -nodes -keyout {{ ssl_key_file }} -out {{ ssl_csr_file}} -subj {{ ssl_csr_subject_fields }}"
-  args:
-    creates: "{{ item }}"
-  with_items:
-    - "{{ ssl_key_file }}"
-    - "{{ ssl_csr_file }}"
-  tags: ssl,csr
+- include: rsa.yml
+  static: no
+  when: not ssl_ecc_crt
 
-- name: Generate self-signed crt
-  command: "openssl x509 -signkey {{ ssl_key_file }} -in {{ ssl_csr_file }} -req -days {{ ssl_crt_days }} -sha256 -out {{ ssl_crt_file }}"
-  args:
-    creates: "{{ ssl_crt_file }}"
-  tags: ssl,crt
+- include: ecc.yml
+  static: no
+  when: ssl_ecc_crt
 
 - name: generate DH param
   command: "openssl dhparam -dsaparam -out {{ ssl_dhparam_file }} {{ ssl_dhparam_size }}"

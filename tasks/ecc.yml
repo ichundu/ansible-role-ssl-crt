@@ -1,0 +1,19 @@
+---
+
+- name: Generate ecc key
+  command: "openssl ecparam -out {{ ssl_key_file }} -name {{ ssl_ecc_curve_name }} -genkey"
+  args:
+    creates: "{{ ssl_key_file }}"
+  tags: ssl,key
+
+- name: Generate CSR
+  command: "openssl req -new -key {{ ssl_key_file }} -out {{ ssl_csr_file }} -subj {{ ssl_csr_subject_fields }}"
+  args:
+    creates: "{{ ssl_csr_file }}"
+  tags: ssl,csr
+
+- name: Generate self-signed certificcate
+  command: "openssl req -x509 -nodes -days {{ ssl_crt_days }} -key {{ ssl_key_file }} -in {{ ssl_csr_file }} -out {{ ssl_crt_file }}"
+  args:
+    creates: "{{ ssl_crt_file }}"
+  tags: ssl,crt
