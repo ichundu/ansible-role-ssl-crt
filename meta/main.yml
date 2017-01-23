@@ -1,6 +1,6 @@
 galaxy_info:
   author: ichundu
-  description: ansible enthusiast
+  description: Generate self-signed certificate
 
   license: GPLv2
 
