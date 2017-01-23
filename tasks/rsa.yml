@@ -1,7 +1,7 @@
 ---
 
 - name: Generate ssl key and csr
-  command: "openssl req -newkey rsa:{{ ssl_key_size }} -nodes -keyout {{ ssl_key_file }} -out {{ ssl_csr_file}} -subj {{ ssl_csr_subject_fields }}"
+  command: "openssl req -newkey rsa:{{ ssl_rsa_key_size }} -nodes -keyout {{ ssl_key_file }} -out {{ ssl_csr_file}} -subj {{ ssl_csr_subject_fields }}"
   args:
     creates: "{{ item }}"
   with_items:
